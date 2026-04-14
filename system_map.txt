@@ -54,3 +54,16 @@
 11. Where  git command is located:
 	command = which git
 	output = /data/data/com.termux/files/usr/bin/git
+
+12. Last 10 history:
+	command = history 10
+	output = 535  cd /etc
+	  		 536  cat hosts
+	    	 537  clear
+	      	 538  cd
+	         539  micro system_map.txt
+	         540  echo $PATH
+	         541  micro system_map.txt
+	         542  which python
+	         543  micro system_map.txt
+	         544  which git
