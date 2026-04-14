@@ -37,12 +37,13 @@
 	output =  ls: cannot open directory '/': Permission denied
 
 8. System Hostname:
-	command = 1. cd /etc
-			  2. ls
-			  3. cat hosts
-	output = 127.0.0.1       localhost
-			 ::1             ip6-localhost
+   Command: hostname
+   Output: localhost
 
+   Note: /etc on Termux is Android's config directory.
+      Termux's actual Linux config lives at $PREFIX/etc
+         ($PREFIX = /data/data/com.termux/files/usr)
+         
 9. Full $PATH variable:
 	command = echo $PATH
 	output = /data/data/com.termux/files/usr/bin
