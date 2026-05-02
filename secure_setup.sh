@@ -45,15 +45,15 @@ echo "----------------------------"
 echo "Security Permissions Applied"
 echo "----------------------------"
 chmod 700 $1/secrets
-echo "[🔒] 700 (Owner Only) : my_app/secrets/"
+echo "[🔒] 700 (Owner Only) : $1/secrets/"
 chmod 600 $1/secrets/api.key
-echo "[🔒] 600 (Owner Only) : my_app/secrets/api.key"
+echo "[🔒] 600 (Owner Only) :$1/secrets/api.key"
 chmod 700 $1/scripts/deploy.sh
-echo "[🔒] 700 (Owner Only) : my_app/scripts/deploy.sh"
+echo "[🔒] 700 (Owner Only) : $1/scripts/deploy.sh"
 chmod 644 $1/config/app.conf
-echo "[📖] 644 (Public Read) : my_app/config/app.conf"
+echo "[📖] 644 (Public Read) : $1/config/app.conf"
 chmod 755 $1/logs
-echo "[📂] 755 (Public Enter) : my_app/logs/"
+echo "[📂] 755 (Public Enter) : $1/logs/"
 
 echo ""
 
