@@ -47,7 +47,11 @@ echo "----------------------------"
 chmod 700 $1/secrets
 echo "[🔒] 700 (Owner Only) : $1/secrets/"
 chmod 600 $1/secrets/api.key
+<<<<<<< HEAD
 echo "[🔒] 600 (Owner Only) :$1/secrets/api.key"
+=======
+echo "[🔒] 600 (Owner Only) : $1/secrets/api.key"
+>>>>>>> cd8527a (Updated hard-coded my_app variable)
 chmod 700 $1/scripts/deploy.sh
 echo "[🔒] 700 (Owner Only) : $1/scripts/deploy.sh"
 chmod 644 $1/config/app.conf
@@ -60,5 +64,5 @@ echo ""
 echo -e "\e[32m----------------------------\e[0m"
 echo -e "\e[32m	SETUP COMPLETE!\e[0m"
 echo -e "\e[32m----------------------------\e[0m"
-echo "Ready to deploy. Run 'cd my_app' to start."
+echo "Ready to deploy. Run 'cd $1' to start."
 echo "================================="
