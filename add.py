@@ -14,3 +14,4 @@ total = mocha * float(order_quantity) + float(tip_amount)
 
 print("Alright " + user_name + ", Your total will be $" + str(total) + ".\n" + "Kindly Proceed to the counter to pay and you'll get your order shortly" )
 
+print("\nProgram run has ended.")
