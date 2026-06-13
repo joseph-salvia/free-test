@@ -546,7 +546,7 @@ Total, {total_len} Resources, ${total_cost:.2f}
         elif menu_choice == "4":
             r_list = region_filter()
             if r_list:
-                for s in servers:  
+                for s in r_list:   
                     print()
                     print(f"{YELLOW}=== SERVERS IN {s.get("region")} ==={RESET}")
                     break

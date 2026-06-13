@@ -1,0 +1,31 @@
+{
+  "resources": [
+    {
+      "type": "Database",
+      "name": "dare",
+      "region": "us-west-2",
+      "owner": "marve",
+      "db_type": "PostgreSQL",
+      "storage_gb": 18,
+      "backup_enabled": true
+    },
+    {
+      "type": "VirtualMachine",
+      "name": "web-server-01",
+      "region": "us-east-1",
+      "owner": "MLTeam",
+      "cpu": 2,
+      "ram": 6,
+      "storage_gb": 128
+    },
+    {
+      "type": "Database",
+      "name": "main-db",
+      "region": "ap-south-1",
+      "owner": "DataTeam",
+      "db_type": "PostgreSQL",
+      "storage_gb": 500,
+      "backup_enabled": true
+    }
+  ]
+}

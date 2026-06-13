@@ -1,0 +1,106 @@
+type, num, amount
+
+2026-06-13 12:22:24
+VirtualMachine, 2 resource(s), $1162.00
+Database, 1 resource(s), $562.00
+Serverless Function, 2 resource(s), $142.75
+Total, 5 Resources, $1866.75
+----------------------------------------
+
+2026-06-13 12:22:50
+VirtualMachine, 1 resource(s), $628.00
+Database, 1 resource(s), $562.00
+Serverless Function, 2 resource(s), $142.75
+Total, 4 Resources, $1332.75
+----------------------------------------
+
+2026-06-13 12:23:58
+VirtualMachine, 2 resource(s), $2374.00
+Database, 1 resource(s), $562.00
+Serverless Function, 2 resource(s), $142.75
+Total, 5 Resources, $3078.75
+----------------------------------------
+
+2026-06-13 12:25:09
+VirtualMachine, 2 resource(s), $2374.00
+Database, 1 resource(s), $562.00
+Serverless Function, 1 resource(s), $102.50
+Total, 4 Resources, $3038.50
+----------------------------------------
+
+2026-06-13 12:25:39
+VirtualMachine, 2 resource(s), $2374.00
+Database, 1 resource(s), $562.00
+Serverless Function, 0 resource(s), $0.00
+Total, 3 Resources, $2936.00
+----------------------------------------
+
+2026-06-13 12:44:22
+VirtualMachine, 0 resource(s), $0.00
+Database, 1 resource(s), $562.00
+Serverless Function, 0 resource(s), $0.00
+Total, 1 Resources, $562.00
+----------------------------------------
+
+2026-06-13 12:44:46
+VirtualMachine, 0 resource(s), $0.00
+Database, 0 resource(s), $0.00
+Serverless Function, 0 resource(s), $0.00
+Total, 0 Resources, $0.00
+----------------------------------------
+
+2026-06-13 12:45:55
+VirtualMachine, 1 resource(s), $142.00
+Database, 0 resource(s), $0.00
+Serverless Function, 0 resource(s), $0.00
+Total, 1 Resources, $142.00
+----------------------------------------
+
+2026-06-13 12:48:21
+VirtualMachine, 1 resource(s), $142.00
+Database, 0 resource(s), $0.00
+Serverless Function, 0 resource(s), $0.00
+Total, 1 Resources, $142.00
+----------------------------------------
+
+2026-06-13 12:58:04
+VirtualMachine, 1 resource(s), $142.00
+Database, 1 resource(s), $186.00
+Serverless Function, 0 resource(s), $0.00
+Total, 2 Resources, $328.00
+----------------------------------------
+
+2026-06-13 13:03:06
+VirtualMachine, 1 resource(s), $142.00
+Database, 1 resource(s), $186.00
+Serverless Function, 0 resource(s), $0.00
+Total, 2 Resources, $328.00
+----------------------------------------
+
+2026-06-13 13:15:02
+VirtualMachine, 0 resource(s), $0.00
+Database, 1 resource(s), $186.00
+Serverless Function, 0 resource(s), $0.00
+Total, 1 Resources, $186.00
+----------------------------------------
+
+2026-06-13 13:20:56
+VirtualMachine, 1 resource(s), $384.00
+Database, 1 resource(s), $186.00
+Serverless Function, 0 resource(s), $0.00
+Total, 2 Resources, $570.00
+----------------------------------------
+
+2026-06-13 13:25:43
+VirtualMachine, 0 resource(s), $0.00
+Database, 1 resource(s), $186.00
+Serverless Function, 0 resource(s), $0.00
+Total, 1 Resources, $186.00
+----------------------------------------
+
+2026-06-13 17:08:37
+VirtualMachine, 1 resource(s), $142.00
+Database, 2 resource(s), $1336.00
+Serverless Function, 0 resource(s), $0.00
+Total, 3 Resources, $1478.00
+----------------------------------------
