@@ -1,6 +1,6 @@
-
 import json
 import csv
+from datetime import datetime
 
 try:
     with open("resources.json", "r") as file:
@@ -13,7 +13,7 @@ try:
         csv_reader = csv.reader(file)
 
         header = next(csv_reader)
-    index = 0
+        
     final_csv = ""
         
 
@@ -347,7 +347,8 @@ try:
         return [s for s in servers if s.get("type") == "ServerlessFunction"]
 
 #------------------------------------------------------------------------------
-    def display_cost(final_csv):
+    def display_cost():
+        global final_csv
         virtualmachine_cost, database_cost, serverless_cost = calculate_cost()
         v_machine_len = len(v_machine_list())
         database_len = len(database_list())
@@ -363,19 +364,21 @@ try:
         print()
         print(f"Total: {total_len} Resources, ${total_cost:.2f}{RESET}")
         while True:
-            save_cost = input("""\nDo you want to save this cost output to a CSV for later monitoring?
+            save_cost = input("""\nDo you want to save this Cost report to a CSV for later monitoring?
 1. Yes
 2. No:\t""").strip()
             if save_cost == "1":
-                cost_history = f"""\nVirtualMachine, {v_machine_len} resource(s), ${virtualmachine_cost:.2f}
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                cost_history = f"""\n{(timestamp)}\nVirtualMachine, {v_machine_len} resource(s), ${virtualmachine_cost:.2f}
 Database, {database_len} resource(s), ${database_cost:.2f}
 Serverless Function, {serverless_len} resource(s), ${serverless_cost:.2f}
-Total, {total_len} Resources, ${total_cost:.2f}"""
+Total, {total_len} Resources, ${total_cost:.2f}
+{"-" * 40}\n"""
                 final_csv += cost_history
-                print(final_csv)
+                print(f"\n{GREEN}The current Cost report has been saved to history successfully{RESET}")
                 break
             elif save_cost == "2":
-                print(f"\n{GREEN}Alright, the cost output was not saved{RESET}")
+                print(f"\n{GREEN}Alright, the Cost report was not saved to history{RESET}")
                 break
             else:
                 print(f"\n{RED}Enter the correct option from the menu{RESET}")
@@ -441,8 +444,6 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
             self.owner = owner
         def get_monthly_cost(self):
             raise NotImplementedError
-        def __str__(self):
-            return f"'{self.name}' in {self.region} by '{self.owner}'"
     class VirtualMachine(CloudResource):
         def __init__(self, name, region, owner, cpu, ram, storage_gb):
             super().__init__(name, region, owner)
@@ -506,7 +507,6 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
             if s_find_list:
                 print()
                 print(f"{GREEN}Yay, Server was found!{RESET}")
-                print()
                 for s in s_find_list:
                     if s.get("type") == "VirtualMachine":
                         print(f"{YELLOW}")
@@ -546,7 +546,10 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
         elif menu_choice == "4":
             r_list = region_filter()
             if r_list:
-                print()
+                for s in servers:  
+                    print()
+                    print(f"{YELLOW}=== SERVERS IN {s.get("region")} ==={RESET}")
+                    break
                 for s in r_list:
                     if s.get("type") == "VirtualMachine":
                         print(f"{YELLOW}")
@@ -557,8 +560,9 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
                         print(f"Owner: {s.get("owner")}")
                         print(f"CPU(cores): {s.get("cpu")}")
                         print(f"RAM(gb): {s.get("ram")}")
-                        print(f"Storage(gb): {s.get("storage_gb")}{RESET}")
+                        print(f"Storage(gb): {s.get("storage_gb")}")
                         print("-" * 23)
+                        print(f"{RESET}")
                     elif s.get("type") == "Database":
                         print(f"{YELLOW}")
                         print("-" * 23)
@@ -568,8 +572,9 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
                         print(f"Owner: {s.get("owner")}")
                         print(f"DB Type: {s.get("db_type")}")
                         print(f"Storage(gb): {s.get("storage_gb")}")
-                        print(f"Backup Enabled: {s.get("backup_enabled")}{RESET}")
+                        print(f"Backup Enabled: {s.get("backup_enabled")}")
                         print("-" * 23)
+                        print(f"{RESET}")
                     elif s.get("type") == "ServerlessFunction":
                         print(f"{YELLOW}")
                         print("-" * 23)
@@ -578,14 +583,15 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
                         print(f"Region: {s.get("region")}")
                         print(f"Owner: {s.get("owner")}")
                         print(f"Monthly Invocations: {s.get("monthly_invocations")}")
-                        print(f"Average Duration(ms): {s.get("avg_duration_ms")}{RESET}")
+                        print(f"Average Duration(ms): {s.get("avg_duration_ms")}")
                         print("-" * 23)
+                        print(f"{RESET}")
             else:
                 print(f"\n{RED}No server has been saved in that region yet.{RESET}")
 
 #===============================================================================
         elif menu_choice == "5":
-            display_cost(final_csv)
+            display_cost()
 
 #===============================================================================
         elif menu_choice == "6":
@@ -621,14 +627,19 @@ Total, {total_len} Resources, ${total_cost:.2f}"""
             final_json = {}
             final_json["resources"] = servers
             with open("resources.json", "w") as file:
-                    json.dump(final_json, file, indent=2)
-                    
+                json.dump(final_json, file, indent=2)
+
+            with open("cost_history.csv", "a") as file:
+                file.write(final_csv)
+                
             print(f"\n{GREEN}Session saved and Program has quitted successfully{RESET}")
             break
+
+#================================================================================
         else:
             print(f"\n{RED}Invalid input detected, kindly choose from the menu below{RESET}")
 
-
+#================================================================================
 except FileNotFoundError:
     print("Json file 'resources.json' was not found")
     print("Make sure the file is available before running the program again")
